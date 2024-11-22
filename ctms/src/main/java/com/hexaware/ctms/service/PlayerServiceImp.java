@@ -97,4 +97,12 @@ public class PlayerServiceImp implements IPlayerService {
 		}
 	}
 
+
+
+	@Override
+	public List<Player> findPlayerWithMoreMatches(String playerName) {
+		
+		return playerRepository.findPlayerWithMoreMatches(playerName);
+	}
+
 }

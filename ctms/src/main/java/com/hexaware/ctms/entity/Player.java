@@ -30,7 +30,6 @@ public class Player {
 	
 	@Column(nullable = false)
 	@NotNull(message = "Jersey number cannot be null")
-	@Size(min = 1, max = 4, message = "Jersey number must be between 1 and 4 characters")
 	private int jerseyNumber;
 	
 	@Column(nullable = false)

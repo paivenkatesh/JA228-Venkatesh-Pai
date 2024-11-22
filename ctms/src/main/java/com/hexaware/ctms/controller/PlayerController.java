@@ -72,5 +72,12 @@ public class PlayerController {
 		
 		return ResponseEntity.noContent().build();
 	}
+	
+	//Players with more matches
+	@GetMapping("/findPlayerWithMoreMatches/{playerName}")
+	List<Player> findPlayerWithMoreMatches(@PathVariable String playerName){
+		
+		return playerService.findPlayerWithMoreMatches(playerName);
+	}
 
 }
