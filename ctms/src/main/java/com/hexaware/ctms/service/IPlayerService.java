@@ -11,4 +11,5 @@ public interface IPlayerService {
 	Player getPlayerById(int playerId);
 	Player updatePlayerDetails(int playerId, Player player);
 	void deletePlayer(int playerId);
+	List<Player> findPlayerWithMoreMatches(String playerName);
 }
