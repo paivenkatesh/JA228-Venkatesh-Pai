@@ -8,12 +8,14 @@ import { ListPlayersComponent } from './components/player/list-players/list-play
 import { AddPlayerComponent } from './components/player/add-player/add-player.component';
 import { EditPlayerComponent } from './components/player/edit-player/edit-player.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MoreMatchesPlayersComponent } from './components/player/more-matches-players/more-matches-players.component';
 @NgModule({
   declarations: [
     AppComponent,
     ListPlayersComponent,
     AddPlayerComponent,
-    EditPlayerComponent
+    EditPlayerComponent,
+    MoreMatchesPlayersComponent
   ],
   imports: [
     BrowserModule,

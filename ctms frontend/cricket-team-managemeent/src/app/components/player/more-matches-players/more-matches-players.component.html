@@ -1,0 +1,41 @@
+<!-- src/app/components/player/more-matches-players/more-matches-players.component.html -->
+<div class="container">
+    <h2>Players with More Matches than a Given Player</h2>
+    <form [formGroup]= "moreMatchesPlayersForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="playerName">Player Name:</label>
+        <input type="text" class="form-control" id="playerName" formControlName="playerName" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Find Players</button>
+    </form>
+  
+    <div *ngIf="players.length > 0">
+      <h3>Players with More Matches:</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Player ID</th>
+            <th>Player Name</th>
+            <th>Jersey Number</th>
+            <th>Role</th>
+            <th>Total Matches</th>
+            <th>Team Name</th>
+            <th>Country</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of players">
+            <td>{{ player.playerId }}</td>
+            <td>{{ player.playerName }}</td>
+            <td>{{ player.jerseyNumber }}</td>
+            <td>{{ player.role }}</td>
+            <td>{{ player.totalMatches }}</td>
+            <td>{{ player.teamName }}</td>
+            <td>{{ player.country }}</td>
+            <td>{{ player.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

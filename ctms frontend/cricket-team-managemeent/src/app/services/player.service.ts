@@ -17,7 +17,8 @@ export class PlayerService {
   }
 
   addPlayer(player: Player): Observable<Player> {
-    return this.http.post<Player>('${this.apiUrl}/registerPlayer', player);
+    console.log('API URL:', this.apiUrl);
+    return this.http.post<Player>(`${this.apiUrl}/registerPlayer`, player)
   }
 
   updatePlayer(playerId: number, player: Player): Observable<Player> {
@@ -33,6 +34,11 @@ export class PlayerService {
 
   getPlayerById(playerId: number): Observable<Player> {
     return this.http.get<Player>(`${this.apiUrl}/getPlayerById/${playerId}`);
+  }
+
+  findPlayerWithMoreMatches(playerName: string): Observable<Player[]> {
+    return this.http.get<Player[]>(`${this.apiUrl}/findPlayerWithMoreMatches/${playerName}`
+    );
   }
 
 }
