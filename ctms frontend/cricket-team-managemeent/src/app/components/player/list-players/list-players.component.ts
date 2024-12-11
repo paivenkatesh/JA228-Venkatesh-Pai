@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from 'src/app/services/player.service';
 import { Player } from 'src/app/models/player.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-players',
@@ -10,7 +11,7 @@ import { Player } from 'src/app/models/player.model';
 export class ListPlayersComponent implements OnInit{
   players: Player[] = [];
 
-  constructor(private playerService: PlayerService) {}
+  constructor(private playerService: PlayerService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadPlayers();
@@ -18,14 +19,14 @@ export class ListPlayersComponent implements OnInit{
 
   //Load all players
   loadPlayers(): void {
-    this.playerService.getPlayers().subscribe({
-      next: (data) => {
-        this.players = data;
+    this.playerService.getPlayers().subscribe(
+      (players) => {
+        this.players = players;
       },
-      error: (err) => {
-        console.error('Error fetching players:', err);
-      },
-    });
+      (error) => {
+        console.error('Error fetching players:', error);
+      }
+    );
   }
 
   //Delete a player
